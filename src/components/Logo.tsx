@@ -1,15 +1,11 @@
 import logo from "../assets/wallet.png";
+import { NavLink } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <a className="navbar-brand" href="#">
-      <img
-        src={logo}
-        alt="Logo"
-        width={52}
-        height={52}
-      />
-    </a>
+    <NavLink className="navbar-brand" to="/">
+      <img src={logo} alt="Logo" width={52} height={52} />
+    </NavLink>
   );
 };
 
