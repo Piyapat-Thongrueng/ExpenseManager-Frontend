@@ -12,7 +12,6 @@ const App = () => {
     <>
       <BrowserRouter>
         <Navbar />
-        <br />
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
