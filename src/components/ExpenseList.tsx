@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Expense } from "../model/Expense";
 import CurrencyUtils from "../utils/CurrencyUtils";
 import DateUtils from "../utils/DateUtils";
@@ -8,27 +9,6 @@ interface ExpenseListProps {
 
 const ExpenseList = ({ expenses }: ExpenseListProps) => {
   return (
-    // <div>
-    //   <table border={1}>
-    //     <thead>
-    //       <tr>
-    //         <th>Title</th>
-    //         <th>Amount</th>
-    //         <th>Date</th>
-    //       </tr>
-    //     </thead>
-    //     <tbody>
-    //       {expenses.map((expense) => (
-    //         <tr key={expense.expenseId}>
-    //           <td>{expense.name}</td>
-    //           <td>{expense.amount}</td>
-    //           <td>{expense.date}</td>
-    //         </tr>
-    //       ))}
-    //     </tbody>
-    //   </table>
-    // </div>
-
     <div className="card">
       <h5 className="card-header">
         ค่าใช้จ่าย
@@ -36,7 +16,11 @@ const ExpenseList = ({ expenses }: ExpenseListProps) => {
       </h5>
       <div className="card-body">
         {expenses.map((expense) => (
-          <div key={expense.expenseId}>
+          <Link
+            key={expense.expenseId}
+            to={`/view/${expense.expenseId}`}
+            style={{ textDecoration: "none" }}
+          >
             <div className="d-flex justify-content-between border-bottom-1 p-3 text-dark">
               <div className="card-title m-0">
                 <h5>{expense.name}</h5>
@@ -50,7 +34,7 @@ const ExpenseList = ({ expenses }: ExpenseListProps) => {
                 </span>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

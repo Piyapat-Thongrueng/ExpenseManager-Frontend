@@ -5,8 +5,8 @@ import { getExpenses } from "../services/expenseService";
 //Custom Hook
 const useExpenses = () => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
-  const [error, setErrors] = useState(null);
-  const [isLoading, setLoader] = useState(false);
+  const [error, setErrors] = useState<string>("");
+  const [isLoading, setLoader] = useState<boolean>(false);
 
   useEffect(() => {
     //api call the spring boot backend
